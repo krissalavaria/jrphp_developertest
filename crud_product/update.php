@@ -8,7 +8,7 @@ $name_err = $price_err = $category_err = "";
 
 // Processing form data when form is submitted
 if (isset($_POST["id"]) && !empty($_POST["id"])) {
-    // Get hidden input value
+
     $id = $_POST["id"];
 
     // Validate name
@@ -18,9 +18,6 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
     } else {
         $product_name = $input_name;
     }
-
-    // echo var_dump($input_name);
-    // die();
 
     // Validate price
     $input_price = trim($_POST["product_price"]);
@@ -67,8 +64,6 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
         mysqli_stmt_close($stmt);
     }
 
-    // Close connection
-    // mysqli_close($link);
 } else {
     // Check existence of id parameter before processing further
     if (isset($_GET["id"]) && !empty(trim($_GET["id"]))) {
@@ -98,7 +93,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
                     $product_price = $row["product_price"];
                     $product_category = $row["category_id"];
                 } else {
-                    // URL doesn't contain valid id. Redirect to error page
+                    // URL doesn't contain valid id.
                     echo '<script>alert("An error occured.")</script>';
                     exit();
                 }
@@ -110,10 +105,8 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
         // Close statement
         mysqli_stmt_close($stmt);
 
-        // Close connection
-        // mysqli_close($link);
     } else {
-        // URL doesn't contain id parameter. Redirect to error page
+        // URL doesn't contain id parameter.
         echo '<script>alert("An error occured.")</script>';
         exit();
     }

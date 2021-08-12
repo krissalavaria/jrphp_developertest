@@ -82,7 +82,7 @@ if (isset($_POST["category_id"]) && !empty($_POST["category_id"])) {
                     $category_name = $row["category_name"];
                     $category_description = $row["category_description"];
                 } else {
-                    // URL doesn't contain valid id. Redirect to error page
+                    // URL doesn't contain valid id.
                     echo '<script>alert("An error occured.")</script>';
                     exit();
                 }
@@ -94,7 +94,7 @@ if (isset($_POST["category_id"]) && !empty($_POST["category_id"])) {
         // Close connection
         mysqli_close($link);
     } else {
-        // URL doesn't contain id parameter. Redirect to error page
+        // URL doesn't contain id parameter.
         echo '<script>alert("An error occured.")</script>';
         exit();
     }
