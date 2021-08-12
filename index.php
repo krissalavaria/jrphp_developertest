@@ -39,7 +39,7 @@
                             while ($row = mysqli_fetch_array($result)) {
                                 echo "<tr>";
                                 echo "<td>" . $count . "</td>";
-                                echo "<td>" . $row['product_name'] . ', ' . number_format($row['product_price']) . "</td>";
+                                echo "<td>" . $row['product_name'] . ', ' . number_format($row['product_price'], 2, '.', '') . "</td>";
                                 echo "<td>" . $row['category_name'] . "</td>";
                                 echo "<td>" . date('F d, Y', strtotime($row['date_added'])) . "</td>";
                                 echo "<td>";

@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($stmt = mysqli_prepare($link, $sql)) {
                 // Bind variables to the prepared statement as parameters
-                mysqli_stmt_bind_param($stmt, "ssss", $param_name, $param_price, $param_category, $param_date);
+                mysqli_stmt_bind_param($stmt, "sdss", $param_name, $param_price, $param_category, $param_date);
 
                 // Set parameters
                 $param_name = $product_name;
@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <div class="form-group">
                             <label>Price</label>
-                            <input type="number" name="product_price" class="form-control <?php echo (!empty($price_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $product_price; ?>">
+                            <input type="number" min="0" value="0" step="0.01" name="product_price" class="form-control <?php echo (!empty($price_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $product_price; ?>">
                             <span class="invalid-feedback"><?php echo $price_err; ?></span>
                         </div>
                         <div class="form-group">
