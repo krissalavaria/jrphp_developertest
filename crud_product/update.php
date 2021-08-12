@@ -56,7 +56,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
                 // Records updated successfully. Redirect to landing page
-                header("location: ../index.php");
+                header("location: ../products.php");
                 exit();
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
@@ -140,17 +140,17 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
                     <form action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post">
                         <div class="form-group">
                             <label>Product Name</label>
-                            <input type="text" name="product_name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $product_name; ?>">
+                            <input type="text" name="product_name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $product_name; ?>" required>
                             <span class="invalid-feedback"><?php echo $name_err; ?></span>
                         </div>
                         <div class="form-group">
                             <label>Price</label>
-                            <input type="number" name="product_price" class="form-control <?php echo (!empty($price_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $product_price; ?>">
+                            <input type="number" name="product_price" class="form-control <?php echo (!empty($price_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $product_price; ?>" required>
                             <span class="invalid-feedback"><?php echo $price_err; ?></span>
                         </div>
                         <div class="form-group">
                             <label>Category</label>
-                            <select name="category_id" class="form-control <?php echo (!empty($category_err)) ? 'is-invalid' : ''; ?>">
+                            <select name="category_id" class="form-control <?php echo (!empty($category_err)) ? 'is-invalid' : ''; ?>" required>
                                 <?php
                                 $category_query = "SELECT * FROM `category`";
                                 if ($result = mysqli_query($link, $category_query)) {
@@ -168,7 +168,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
                         </div>
                         <input type="hidden" name="id" value="<?php echo $id; ?>" />
                         <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="../index.php" class="btn btn-secondary ml-2">Cancel</a>
+                        <a href="../products.php" class="btn btn-secondary ml-2">Cancel</a>
                     </form>
                 </div>
             </div>

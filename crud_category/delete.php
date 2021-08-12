@@ -24,9 +24,6 @@ if (isset($_POST["category_id"]) && !empty($_POST["category_id"])) {
         }
     }
 
-    // Close statement
-    mysqli_stmt_close($stmt);
-
     // Close connection
     mysqli_close($link);
 } else {

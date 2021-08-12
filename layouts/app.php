@@ -20,7 +20,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul class="navbar-nav">
     <li class="nav-item active">
-      <a class="nav-link" href="index.php">Products</a>
+      <a class="nav-link" href="../products.php">Products</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="category.php">Category</a>

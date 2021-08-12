@@ -50,9 +50,6 @@ if (isset($_POST["category_id"]) && !empty($_POST["category_id"])) {
                 echo "Oops! Something went wrong. Please try again later.";
             }
         }
-
-        // Close statement
-        mysqli_stmt_close($stmt);
     }
 
     // Close connection
@@ -93,9 +90,6 @@ if (isset($_POST["category_id"]) && !empty($_POST["category_id"])) {
                 echo "Oops! Something went wrong. Please try again later.";
             }
         }
-
-        // Close statement
-        mysqli_stmt_close($stmt);
 
         // Close connection
         mysqli_close($link);

@@ -54,8 +54,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo "Oops! Something went wrong. Please try again later.";
                 }
             }
-            // Close statement
-            mysqli_stmt_close($stmt);
         }
     }
 
@@ -84,12 +82,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group">
                             <label>Category Name</label>
-                            <input type="text" name="category_name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $category_name; ?>">
+                            <input type="text" name="category_name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $category_name; ?>" required>
                             <span class="invalid-feedback"><?php echo $name_err; ?></span>
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea name="category_description" class="form-control <?php echo (!empty($price_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $category_description; ?>"></textarea>
+                            <textarea name="category_description" class="form-control <?php echo (!empty($price_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $category_description; ?>" required></textarea>
                             <span class="invalid-feedback"><?php echo $description_err; ?></span>
                         </div>
                         <input type="submit" class="btn btn-primary" value="Submit">

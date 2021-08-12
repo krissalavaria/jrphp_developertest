@@ -93,17 +93,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group">
                             <label>Product Name</label>
-                            <input type="text" name="product_name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $product_name; ?>">
+                            <input type="text" name="product_name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $product_name; ?>" required>
                             <span class="invalid-feedback"><?php echo $name_err; ?></span>
                         </div>
                         <div class="form-group">
                             <label>Price</label>
-                            <input type="number" min="0" value="0" step="0.01" name="product_price" class="form-control <?php echo (!empty($price_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $product_price; ?>">
+                            <input type="number" min="0" value="0" step="0.01" name="product_price" class="form-control <?php echo (!empty($price_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $product_price; ?>" required>
                             <span class="invalid-feedback"><?php echo $price_err; ?></span>
                         </div>
                         <div class="form-group">
                             <label>Category</label>
-                            <select name="category_id" class="form-control <?php echo (!empty($category_err)) ? 'is-invalid' : ''; ?>">
+                            <select name="category_id" class="form-control <?php echo (!empty($category_err)) ? 'is-invalid' : ''; ?>" required>
                                 <?php
                                 $category_query = "SELECT * FROM category";
                                 if ($result = mysqli_query($link, $category_query)) {
@@ -122,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </div>
                         <input type="text" name="date_added" value="<?php echo $date_added; ?>" hidden>
                         <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="../index.php" class="btn btn-secondary ml-2">Cancel</a>
+                        <a href="../products.php" class="btn btn-secondary ml-2">Cancel</a>
                     </form>
                 </div>
             </div>
